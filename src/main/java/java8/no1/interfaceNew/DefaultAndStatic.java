@@ -12,4 +12,5 @@ public class DefaultAndStatic implements DefalutTest {
 	}
 
 	public void dd(){}
+	public void zz(){}
 }
