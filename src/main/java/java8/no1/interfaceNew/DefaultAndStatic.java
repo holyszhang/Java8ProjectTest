@@ -10,4 +10,6 @@ public class DefaultAndStatic implements DefalutTest {
 	public int sub(int a, int b) {
 		return a+b;
 	}
+
+	public void dd(){}
 }
