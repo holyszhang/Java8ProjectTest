@@ -230,4 +230,10 @@ public class Java8No1 {
 		System.out.println(s.get());
 	}
 
+	@Test
+	public void t(){
+		System.out.println("git push 之后的第一次push");
+	}
+
+
 }
