@@ -4,10 +4,8 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01e5bf06-4b8e-4ad4-9896-02bd84ccc7e7" name="Default" comment="Revert &quot;add fun&quot;&#10;&#10;This reverts commit 742242de77f9c79e0b9f4c7c757f95803feeff5f.&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/java8/no1/interfaceNew/DefaultAndStatic.java">
+    <list default="true" id="01e5bf06-4b8e-4ad4-9896-02bd84ccc7e7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Java8No1.java" afterPath="$PROJECT_DIR$/src/test/java/Java8No1.java" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Java8No1.class" afterPath="$PROJECT_DIR$/target/test-classes/Java8No1.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,14 +18,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Java8No1.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Java8No1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Java8No1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="233" column="20" lean-forward="true" selection-start-line="233" selection-start-column="20" selection-end-line="233" selection-end-column="20" />
+            <state relative-caret-position="379">
+              <caret line="222" column="48" lean-forward="true" selection-start-line="222" selection-start-column="48" selection-end-line="222" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="677" column="16" lean-forward="true" selection-start-line="677" selection-start-column="16" selection-end-line="677" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -469,7 +477,7 @@
       <workItem from="1559272825107" duration="557000" />
       <workItem from="1559273454528" duration="131000" />
       <workItem from="1559273693377" duration="350000" />
-      <workItem from="1559283568886" duration="102000" />
+      <workItem from="1559283568886" duration="276000" />
     </task>
     <task id="LOCAL-00001" summary="git commit 1">
       <created>1559208429048</created>
@@ -492,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559209072378</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="valueOf">
+      <created>1559283683167</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559283683167</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -528,7 +543,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34925000" />
+    <option name="totallyTimeSpent" value="35099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -600,7 +615,8 @@
     <MESSAGE value="git commit 1" />
     <MESSAGE value="add fun" />
     <MESSAGE value="add zz" />
-    <option name="LAST_COMMIT_MESSAGE" value="add zz" />
+    <MESSAGE value="valueOf" />
+    <option name="LAST_COMMIT_MESSAGE" value="valueOf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -924,11 +940,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Java8No1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="233" column="20" lean-forward="true" selection-start-line="233" selection-start-column="20" selection-end-line="233" selection-end-column="20" />
+        <state relative-caret-position="379">
+          <caret line="222" column="48" lean-forward="true" selection-start-line="222" selection-start-column="48" selection-end-line="222" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="677" column="16" lean-forward="true" selection-start-line="677" selection-start-column="16" selection-end-line="677" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
