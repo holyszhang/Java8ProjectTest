@@ -233,6 +233,8 @@ public class Java8No1 {
 	@Test
 	public void t(){
 		System.out.println("git push 之后的第一次push");
+		Function<String ,Integer> s= Integer::valueOf;
+		System.out.println(s.apply("123"));
 	}
 
 
