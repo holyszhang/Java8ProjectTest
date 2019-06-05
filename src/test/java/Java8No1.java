@@ -1,9 +1,14 @@
+import com.sun.deploy.util.StringUtils;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import java8.no1.interfaceNew.DefalutTest;
 import java8.no1.interfaceNew.DefaultAndStatic;
 import java8.no1.interfaceNew.Utils;
 import java8.no1.interfaceNew.User;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -123,10 +128,10 @@ public class Java8No1 {
 
 		//partitioningBy 其实是一种特殊的 groupingBy，它依照条件测试的是否两种结果来构造返回的数据结构，get(true) 和 get(false) 能即为全部的元素对象。
 		//https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/
-		Map<Boolean, List<User>> mm = users.stream().collect(Collectors.partitioningBy(u->u.getName().equals("zhang")));
-		List<User> trueUser=mm.get(true);
+		Map<Boolean, List<User>> mm = users.stream().collect(Collectors.partitioningBy(u -> u.getName().equals("zhang")));
+		List<User> trueUser = mm.get(true);
 		System.out.println(trueUser.toString());
-		List<User> falseUser=mm.get(false);
+		List<User> falseUser = mm.get(false);
 		System.out.println(falseUser.toString());
 
 
@@ -144,23 +149,27 @@ public class Java8No1 {
 	public void aa() {
 		List<Object> objectList = Lists.newArrayList("a", 1, "abc", 32, 58, "87ew", new User(222, "zhang"), new User(333, "zhen"));
 
-		Stream<Integer> integerStream = objectList.stream().filter(o -> o instanceof Integer).map(o -> {return Integer.valueOf(o.toString());});
+		Stream<Integer> integerStream = objectList.stream().filter(o -> o instanceof Integer).map(o -> {
+			return Integer.valueOf(o.toString());
+		});
 		integerStream.forEach(System.out::println);
 
-		Stream<String> stringStream=objectList.stream().filter(s->s instanceof  String).map(Object::toString);
+		Stream<String> stringStream = objectList.stream().filter(s -> s instanceof String).map(Object::toString);
 		stringStream.forEach(System.out::println);
 
-		Stream<User> userStream=objectList.stream().filter(o->o instanceof User).map(o->{return (User)o;});
-		List<User> userList=userStream.collect(toList());
+		Stream<User> userStream = objectList.stream().filter(o -> o instanceof User).map(o -> {
+			return (User) o;
+		});
+		List<User> userList = userStream.collect(toList());
 		userList.forEach(System.out::println);
 
 	}
 
 	@Test
-	public void spliPeek(){
-		String str="a_b_c_1_d_22";
-		List list=new ArrayList();
-		Stream.of(str.split("_")).peek(System.out::println).forEach(e->list.add(e));
+	public void spliPeek() {
+		String str = "a_b_c_1_d_22";
+		List list = new ArrayList();
+		Stream.of(str.split("_")).peek(System.out::println).forEach(e -> list.add(e));
 		list.stream().forEach(System.out::println);
 	}
 
@@ -168,18 +177,18 @@ public class Java8No1 {
 	 * fllatmap方法与map方法的比较
 	 */
 	@Test
-	public void peek2(){
-		String[] words=new String[]{"Hello","World"};
-		List<String[]> a= Arrays.stream(words).map(word->word.split("")).distinct().collect(toList());
+	public void peek2() {
+		String[] words = new String[]{"Hello", "World"};
+		List<String[]> a = Arrays.stream(words).map(word -> word.split("")).distinct().collect(toList());
 		a.forEach(System.out::print);
 		System.out.println();
-		List<String>  wordList=Lists.newArrayList("Hello","World");
-		wordList.stream().flatMap(w->Stream.of(w.split(""))).collect(toList()).forEach(System.out::print);
+		List<String> wordList = Lists.newArrayList("Hello", "World");
+		wordList.stream().flatMap(w -> Stream.of(w.split(""))).collect(toList()).forEach(System.out::print);
 
 	}
 
 	@Test
-	public void dd(){
+	public void dd() {
 		Stream.of("one", "two", "three", "four").peek(e -> System.out.println(e)).collect(toList());
 
 	}
@@ -187,9 +196,9 @@ public class Java8No1 {
 	//Predicate接口:可以理解为一个比较器
 	//and、nagate、or
 	@Test
-	public void ccc(){
-		Predicate<String> predicate1=s->s.length()>0;
-		Predicate<String> predicate2=s->Integer.valueOf(s)>0;
+	public void ccc() {
+		Predicate<String> predicate1 = s -> s.length() > 0;
+		Predicate<String> predicate2 = s -> Integer.valueOf(s) > 0;
 		System.out.println(predicate1.and(predicate2).test("123"));//&&用比较器对“123”进行判断，是否两个条件都满足
 		System.out.println(predicate1.negate().test("123"));//！的效果
 		System.out.println(predicate1.or(predicate2).test("123"));//||的效果
@@ -207,32 +216,45 @@ public class Java8No1 {
 		System.out.println(isEmpty.test("sss"));
 		System.out.println(isNotEmpty.test(""));
 
-		Predicate<Integer> a=i->i>0;
-		Predicate<Integer> b=i->i<10;
+		Predicate<Integer> a = i -> i > 0;
+		Predicate<Integer> b = i -> i < 10;
 
-		//isEquals方法为static方法，只能如下调用，用途是和null值进行比较，如果方法参数为null就返回Objects::isNull，否则返回参数本身
-		System.out.println("==="+Predicate.isEqual(null).test(null));
-		System.out.println("==="+Predicate.isEqual(45).test(null));
-		System.out.println("==="+Predicate.isEqual(45).test(45));
+		//isEquals方法为static方法，只能如下调用，用途是和null值进行比较，如果方法参数为null就返回Objects::isNull，否则返回参数本身dddddddddddddddddd
+		System.out.println("===" + Predicate.isEqual(null).test(null));
+		System.out.println("===" + Predicate.isEqual(45).test(null));
+		System.out.println("===" + Predicate.isEqual(45).test(45));
 	}
 
 	//Function
 	@Test
-	public void aba(){
-		Function<Date ,String> a = d -> new SimpleDateFormat("yyyyMMdd").format(d);
+	public void aba() {
+		Function<Date, String> a = d -> new SimpleDateFormat("yyyyMMdd").format(d);
 		System.out.println(a.apply(new Date()));
 	}
 
 	//Supplier
 	@Test
-	public void sfosf(){
-		Supplier<User> s=User::new;
+	public void sfosf() {
+		Supplier<User> s = User::new;
 		System.out.println(s.get());
 	}
 
 	@Test
-	public void t(){
+	public void t() {
 		System.out.println("git push 之后的第一次push");
+	}
+
+	@Test
+	public void fi() throws IOException {
+		String fileContent = FileUtils.readFileToString(new File("E:\\knowledge\\JsonUtils.txt"), "UTF-8");
+		System.out.println(fileContent.toString());
+
+		List<String> lineString = FileUtils.readLines(new File("E:\\knowledge\\JsonUtils.txt"), "UTF-8");
+		lineString.forEach(s -> System.out.println(s + "__%|@|%"));
+
+		System.out.println(lineString.size());
+
+		System.out.println(lineString.get(17).length());
 	}
 
 
