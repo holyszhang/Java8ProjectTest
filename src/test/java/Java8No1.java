@@ -5,6 +5,7 @@ import java8.no1.interfaceNew.DefaultAndStatic;
 import java8.no1.interfaceNew.Utils;
 import java8.no1.interfaceNew.User;
 import org.apache.commons.io.FileUtils;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -257,5 +258,109 @@ public class Java8No1 {
 		System.out.println(lineString.get(17).length());
 	}
 
+	@Test
+	public void beforeT() {
+		System.out.println("before Test method content");
+	}
+
+	@Test
+	public void bef() {
+		System.out.println("Before");
+	}
+
+	@Test
+	public void sssss() throws IOException {
+		int a = 1;
+		try {
+			a = 10;
+			int s = 1 / 0;
+		} catch (Exception e) {
+			System.out.println(a);
+			throw new IOException("ssss");
+		}
+	}
+
+	@Test
+	public void aet() {
+		try {
+			System.out.println("1");
+			aet();
+		} catch (Exception e) {
+			System.out.println("Exc");
+		}
+	}
+
+	@Test
+	public void ares() {
+		while (true) {
+			System.out.println("a");
+			int a = 1;
+			for (; true; ) {
+				a++;
+				System.out.println("b");
+				if (a > 3) {
+					return;
+				}
+			}
+		}
+	}
+
+	@Test
+	public void setS() {
+		Set<Integer> intSet = new HashSet<>();
+		intSet.add(1);
+		intSet.add(3);
+		intSet.add(5);
+		intSet.add(12);
+		intSet.add(16);
+		intSet.add(55);
+		intSet.forEach(i -> {
+			System.out.println(i + "_");
+		});
+		Object[] arr = intSet.toArray();
+		Arrays.stream(arr).forEach(o -> {
+			System.out.println(o + "@");
+		});
+	}
+
+	@Test
+	public void slakfj() {
+		System.out.println("a");
+		Scanner scan = new Scanner(System.in);
+		try {
+			while (true) {
+				int a = scan.nextInt();
+				if (1 == a) {
+					System.out.println("true");
+				} else {
+					throw new Exception("false");
+				}
+				System.out.println("true aaaaaa");
+			}
+		} catch (Exception e) {
+			System.out.println("false bbbbb");
+		}
+	}
+
+	@Test
+	public List<Integer> adf() {
+		List<Integer> in = Lists.newArrayList(1, 2, 3, 0, 6);
+//		in.forEach(i->{
+//			return in;
+//		});
+		for (Integer i : in) {
+			System.out.println("i:" + i);
+			if (i == 3) {
+				return in;
+			}
+		}
+		for(int p=0;p<in.size();p++){
+			System.out.println("ip:" + p);
+			if (p == 3) {
+				return in;
+			}
+		}
+		return Lists.newArrayList();
+	}
 
 }
